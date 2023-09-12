@@ -7,11 +7,28 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Post;
+use App\Models\Like;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+    
+    public function getByUser(int $limit_count = 5)
+    {
+        return $this->posts()->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
+    
+    public function likes()
+    {
+        $this->hasMany(Like::class);
+    }
+    
     /**
      * The attributes that are mass assignable.
      *

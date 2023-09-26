@@ -24,10 +24,67 @@ class User extends Authenticatable
         return $this->posts()->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
     
+    public function posts_user()
+    {
+        return $this->belongsToMany(Post::class);
+    }
+    
+    
+    
+    
+    
+    
+    
     public function likes()
     {
-        $this->hasMany(Like::class);
+        return $this->belongsToMany(Post::class, 'post_user', 'user_id', 'post_id')->withTimestamps();
     }
+
+    public function like($postId)
+    {
+        $exist = $this->is_like($postId);
+
+        if($exist){
+            return false;
+        }else{
+            $this->likes()->attach($postId);
+            return true;
+        }
+    }
+
+    public function unlike($postId)
+    {
+        $exist = $this->is_like($postId);
+
+        if($exist){
+            $this->likes()->detach($postId);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function is_like($postId)
+    {
+        return $this->likes()->where('post_id',$postId)->exists();
+    }
+    
+    
+    // public function index()
+    // {
+    //     $count_like_users = $post->like_users()->count();
+
+    //     $data=[
+    //           'count_like_users'=>$count_like_users,
+    //           ];
+
+    //     return view('detail',$data
+    //     );
+    //}
+
+
+
+
     
     /**
      * The attributes that are mass assignable.

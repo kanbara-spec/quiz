@@ -1,11 +1,7 @@
 <x-app-layout>
     <h1 class="title">問題を作ろう！！</h1>
     
-    <form action="/posts" method="POST" enctype="multipart/form-data">
-        
-        <p>写真</p>
-            <input type="file" name="image">
-            
+    <form action="/posts" method="POST">
         <div class="cr_content">
             @csrf
             <div class="cr_flex">

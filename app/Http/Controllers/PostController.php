@@ -58,7 +58,8 @@ class PostController extends Controller
     
     public function detail(Post $post)
     {
-        return view('posts.detail')->with(['post'=> $post, 'comments'=>$post->getByPost_comments(), 'answers'=>$post->getByPost_answers()]);
+        return view('posts.detail')->with(['user' => Auth::user(), 'post'=> $post,
+        'comments'=>$post->getByPost_comments(), 'answers'=>$post->getByPost_answers(), 'count_like_users' => $post->like_users()->count()]);
     }
     
     public function edit(Post $post)

@@ -1,5 +1,5 @@
 <x-app-layout>
-    <h1 class="maintitle">SOCCERQUIZ</h1>
+    <h1 class="maintitle">QUIZ</h1>
         
     <!--<div class="backcolor"></div>-->
         
@@ -8,6 +8,4 @@
     <!--    <a class='contents' href="/register">新規登録</a>-->
     <!--</div>-->
     
-    <li><a href="/posts/create3">問題を作る</a></li>
-                                        
 </x-app-layout>

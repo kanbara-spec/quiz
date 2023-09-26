@@ -5,7 +5,7 @@
         <div class="cr_content">
             @csrf
             <p>写真</p>
-            <input type="file" name="post[img_path]">
+            <input type="file" name="post[image_url]">
             <div class="cr_flex">
                 <div class="cr_left">
                     <h2>問題</h2>

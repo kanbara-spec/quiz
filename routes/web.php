@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\LikeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,5 +54,16 @@ Route::controller(Commentcontroller::class)->middleware(['auth'])->group(functio
 Route::controller(Answercontroller::class)->middleware(['auth'])->group(function(){
     Route::post('/{post}/answers', 'store')->name('store');
 });
+
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::group(['prefix'=>'posts/{id}'],function(){
+       Route::post('like', [LikeController::class, 'store'])->name('likes.like');
+       Route::delete('unlike', [LikeController::class, 'destroy'])->name('likes.unlike');
+    });
+});
+
+Route::get('/sample', 'App\Http\Controllers\SampleController@showPage');
+Route::get('/sample', [SampleController::class, 'showPage']);
 
 require __DIR__.'/auth.php';

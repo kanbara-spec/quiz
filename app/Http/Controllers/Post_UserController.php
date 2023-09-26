@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class LikeController extends Controller
+class Post_UserController extends Controller
 {
     public function store(Request $request, $id)
     {

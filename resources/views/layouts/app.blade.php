@@ -25,7 +25,9 @@
                     <ul>
                         <li><a href="/">トップに戻る</a></li>
                         <li><a href="/posts/mypage">MyPage</a></li>
-                        <li><a href="/posts/create">問題を作る</a></li>
+                        <li><a href="/posts/create">問題を作る1</a></li>
+                        <li><a href="/posts/create2">問題を作る2</a></li>
+                        <li><a href="/posts/create3">問題を作る3</a></li>
                         <li><a id="I" href="/posts/show">問題を解く</a></li>
                     </ul>
                 </nav>

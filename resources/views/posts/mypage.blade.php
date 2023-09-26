@@ -1,6 +1,12 @@
 <x-app-layout>
     <h1 class="title">MyPage</h1>
     
+    <div class="mypage">
+        @if($user->posts->isEmpty()) 
+            <a href="/posts/create">問題作成</a>
+        @endif
+    </div>
+    
     <div class="my_flex">
         @foreach($user->posts as $post)
             <div class="my_content">

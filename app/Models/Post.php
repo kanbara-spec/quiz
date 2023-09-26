@@ -47,8 +47,8 @@ class Post extends Model
         return $this->answers()->with('post')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
     
-    public function likes()
+    public function like_users()
     {
-        return $this->hasMany(Like::class);
+        return $this->belongsToMany(User::class,'post_user','post_id','user_id')->withTimestamps();
     }
 }

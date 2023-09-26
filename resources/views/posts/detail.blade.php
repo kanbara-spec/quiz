@@ -39,7 +39,7 @@
     @endif
    
    <div class="text-right mb-2">いいね！
-     <span class="badge badge-pill badge-success">{{ $count_like_users }}</span>
+     <span class="badge badge-pill badge-success">{{ $count__users }}</span>
     </div>
     
     

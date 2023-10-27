@@ -362,6 +362,18 @@ input[type='file'] {
   border-radius: 5px;
 }
 
+.sh_option
+{
+  display: flex;
+  gap: 5%;
+}
+
+.sh_option p
+{
+  border: 1px solid black;
+  width: 30%;
+}
+
 .frame h1{
   font-size: 45px;
   color: red;
@@ -418,6 +430,26 @@ input[type='file'] {
 
 .comment_write{
   margin-top: 10px;
+}
+
+.good
+{
+  display: flex;
+  justify-content: center;
+}
+
+.button.btn
+{
+  padding: 3px;
+  color: red;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.mb-2
+{
+  padding-top: 4px;  
 }
 
 .mypage a{
@@ -479,7 +511,12 @@ input[type='file'] {
   box-shadow: none;
 }
 
+.ed_optionflex
+{
+  display: flex;
+}
 
-.btn-success{
-  color: red;
+.choice
+{
+  margin-top: 40px;
 }

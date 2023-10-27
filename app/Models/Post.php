@@ -19,6 +19,9 @@ class Post extends Model
         'user_id',
         'question',
         'answer',
+        'option1',
+        'option2',
+        'option3',
         'image_url',
     ];
     

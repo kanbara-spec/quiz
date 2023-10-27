@@ -22,28 +22,6 @@
         @endif
     </div>
     
-    
-    
-    @if (Auth::user()->is_like($post->id))
-
-        {!! Form::open(['route' => ['likes.unlike', $post->id], 'method' => 'delete']) !!}
-            {!! Form::submit('いいね！を外す', ['class' => "button btn btn-warning"]) !!}
-        {!! Form::close() !!}
-
-    @else
-
-        {!! Form::open(['route' => ['likes.like', $post->id]]) !!}
-            {!! Form::submit('いいね！を付ける', ['class' => "button btn btn-success"]) !!}
-        {!! Form::close() !!}
-
-    @endif
-   
-   <div class="text-right mb-2">いいね！
-     <span class="badge badge-pill badge-success">{{ $count__users }}</span>
-    </div>
-    
-    
-    
     <!--<div>-->
     <!--    <img src="" alt="画像が読み込めません。"/>-->
     <!--</div>-->
@@ -72,6 +50,25 @@
                 <input type="submit" value="投稿"/>
             </div>
         </form>
+        
+        <div class="good">
+    
+            @if (Auth::user()->is_like($post->id))
+        
+                {!! Form::open(['route' => ['likes.unlike', $post->id], 'method' => 'delete']) !!}
+                    {!! Form::submit('いいね！を外す', ['class' => "button btn btn-warning"]) !!}
+                {!! Form::close() !!}
+        
+            @else
+        
+                {!! Form::open(['route' => ['likes.like', $post->id]]) !!}
+                    {!! Form::submit('いいね！を押す', ['class' => "button btn btn-success"]) !!}
+                {!! Form::close() !!}
+        
+            @endif
+            <div class="text-right mb-2">いいね！
+                <span class="badge badge-pill badge-success">{{ $count_like_users }}</span>
+            </div>
+        </div>
     </div>
 </x-app-layout>
-
